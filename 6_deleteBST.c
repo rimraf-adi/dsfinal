@@ -48,7 +48,6 @@ Node* deleteNode(Node* root, int key) {
     else if (key > root->data)
         root->right = deleteNode(root->right, key);
     else {
-        // Node with only one child or no child
         if (root->left == NULL) {
             Node* temp = root->right;
             free(root);
@@ -60,13 +59,10 @@ Node* deleteNode(Node* root, int key) {
             return temp;
         }
         
-        // Node with two children
         Node* temp = findMinNode(root->right);
         
-        // Copy the inorder successor's data to this node
         root->data = temp->data;
         
-        // Delete the inorder successor
         root->right = deleteNode(root->right, temp->data);
     }
     return root;
@@ -121,7 +117,6 @@ void freeTree(Node* root) {
 int main() {
     Node* root = NULL;
     
-    // Creating a BST
     root = insert(root, 50);
     insert(root, 30);
     insert(root, 20);
