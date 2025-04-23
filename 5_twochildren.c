@@ -92,7 +92,6 @@ void freeTree(Node* root) {
 int main() {
     Node* root = NULL;
     
-    // Creating a BST
     root = insert(root, 50);
     insert(root, 30);
     insert(root, 20);
